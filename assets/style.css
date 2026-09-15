@@ -1,0 +1,2089 @@
+#mahdi-study-app {
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      box-sizing: border-box;
+      overflow-x: clip;
+      --green: #2f7d72;
+      --green-dark: #1f5d58;
+      --green-light: #e5f1ee;
+      --yellow: #d69b3c;
+      --yellow-light: #fff3d9;
+      --dark: #183b3a;
+      --text: #304746;
+      --muted: #718381;
+      --white: #fff;
+      --bg: #f3f7f5;
+      --border: #d8e6e2;
+      --shadow: 0 12px 35px rgba(31, 93, 88, 0.1);
+      font-family: Tahoma, "Vazirmatn", Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(
+          circle at 10% 0%,
+          rgba(214, 155, 60, 0.14),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 90% 10%,
+          rgba(47, 125, 114, 0.12),
+          transparent 30%
+        ),
+        var(--bg);
+      padding: 25px;
+      border-radius: 28px;
+      transition: 0.3s;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    #mahdi-study-app.dark {
+      --green: #65e0c7;
+      --green-dark: #a7f5e4;
+      --green-light: #173d43;
+      --yellow: #f4c866;
+      --yellow-light: #49391b;
+      --dark: #ffffff;
+      --text: #f1f7fa;
+      --muted: #c1d2da;
+      --white: #1d303b;
+      --bg: #09131b;
+      --border: #496977;
+      --shadow: 0 16px 40px rgba(0, 0, 0, 0.52);
+      background:
+        radial-gradient(
+          circle at 8% 0%,
+          rgba(244, 200, 102, 0.16),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 92% 12%,
+          rgba(101, 224, 199, 0.16),
+          transparent 30%
+        ),
+        var(--bg);
+    }
+
+    #mahdi-study-app.dark .ms-top-btn {
+      border-color: rgba(255, 255, 255, 0.48);
+      background: rgba(13, 28, 38, 0.78);
+      color: #f7fcff;
+      box-shadow: 0 5px 16px rgba(0, 0, 0, 0.24);
+    }
+
+    #mahdi-study-app.dark .ms-top-btn:hover,
+    #mahdi-study-app.dark .ms-top-btn:focus-visible {
+      background: #f4c866;
+      border-color: #fff0bd;
+      color: #12232c;
+      outline: none;
+    }
+
+    #mahdi-study-app.dark .ms-navbar,
+    #mahdi-study-app.dark .ms-navbar.is-collapsed:before {
+      background: rgba(19, 45, 55, 0.94);
+      border-color: rgba(154, 233, 217, 0.55);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.38);
+    }
+
+    #mahdi-study-app.dark .ms-navbar-brand,
+    #mahdi-study-app.dark .ms-navbar-link {
+      color: #f7fcff;
+    }
+
+    #mahdi-study-app.dark .ms-navbar-link {
+      border-color: rgba(154, 233, 217, 0.6);
+      background: rgba(98, 213, 192, 0.14);
+    }
+
+    #mahdi-study-app.dark .ms-navbar-link:hover,
+    #mahdi-study-app.dark .ms-navbar-link:focus-visible {
+      background: #65e0c7;
+      border-color: #c0fff1;
+      color: #10242d;
+    }
+
+    #mahdi-study-app.dark .ms-plan-save,
+    #mahdi-study-app.dark .ms-score-input button,
+    #mahdi-study-app.dark .ms-calendar-note button {
+      background: #65e0c7;
+      color: #10242d;
+      border: 1px solid #c0fff1;
+      box-shadow: 0 5px 16px rgba(0, 0, 0, 0.35);
+    }
+
+    #mahdi-study-app.dark .ms-plan-save:hover,
+    #mahdi-study-app.dark .ms-score-input button:hover,
+    #mahdi-study-app.dark .ms-calendar-note button:hover {
+      background: #a7f5e4;
+    }
+
+    #mahdi-study-app.dark .ms-plan-data button,
+    #mahdi-study-app.dark .ms-plan-cancel,
+    #mahdi-study-app.dark .ms-block-edit,
+    #mahdi-study-app.dark .ms-pause {
+      background: #2a414d;
+      color: #f4fbff;
+      border: 1px solid #5d7a87;
+    }
+
+    #mahdi-study-app.dark .ms-reset {
+      background: #f2c15b;
+      color: #17232b;
+      border: 1px solid #ffe3a0;
+    }
+
+    #mahdi-study-app.dark .ms-block-delete {
+      background: #5a3038;
+      color: #ffd9df;
+      border: 1px solid #b56d78;
+    }
+
+    #mahdi-study-app.dark input,
+    #mahdi-study-app.dark select,
+    #mahdi-study-app.dark textarea {
+      border-color: #668695;
+      background: #122631;
+      color: #ffffff;
+      caret-color: #65e0c7;
+    }
+
+    #mahdi-study-app.dark input::placeholder,
+    #mahdi-study-app.dark textarea::placeholder {
+      color: #a9c0ca;
+    }
+
+    #mahdi-study-app.dark .ms-subject-card,
+    #mahdi-study-app.dark .ms-chart-card,
+    #mahdi-study-app.dark .ms-stat,
+    #mahdi-study-app.dark .ms-block,
+    #mahdi-study-app.dark .ms-result,
+    #mahdi-study-app.dark .ms-calendar,
+    #mahdi-study-app.dark .ms-rule {
+      border-color: #496977;
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.3);
+    }
+
+    #mahdi-study-app.dark .ms-day-btn,
+    #mahdi-study-app.dark .ms-score-input button,
+    #mahdi-study-app.dark .ms-plan-editor button,
+    #mahdi-study-app.dark .ms-block-actions button,
+    #mahdi-study-app.dark .ms-calendar-note button,
+    #mahdi-study-app.dark .ms-timer-buttons button {
+      font-weight: 900;
+      text-shadow: none;
+    }
+
+    #mahdi-study-app.dark .ms-day-btn:hover,
+    #mahdi-study-app.dark .ms-day-btn:focus-visible {
+      border-color: #65e0c7;
+      background: #254c57;
+      color: #ffffff;
+    }
+
+    #mahdi-study-app.dark .ms-day-btn.active {
+      background: #65e0c7;
+      border-color: #c0fff1;
+      color: #10242d;
+    }
+
+    #mahdi-study-app.dark .ms-start {
+      background: #65e0c7;
+      color: #10242d;
+      border: 1px solid #c0fff1;
+    }
+
+    #mahdi-study-app.dark .ms-pause,
+    #mahdi-study-app.dark .ms-plan-data button,
+    #mahdi-study-app.dark .ms-plan-cancel,
+    #mahdi-study-app.dark .ms-block-edit {
+      background: #2c4a56;
+      color: #ffffff;
+      border-color: #7495a3;
+    }
+
+    #mahdi-study-app.dark .ms-reset {
+      background: #f4c866;
+      color: #18252b;
+      border-color: #fff0bd;
+    }
+
+    #mahdi-study-app.dark .ms-block-delete {
+      background: #6b303d;
+      color: #ffe8ed;
+      border-color: #d47f8d;
+    }
+
+    #mahdi-study-app * {
+      box-sizing: border-box;
+    }
+
+    .ms-navbar {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      width: 100vw;
+      margin: -25px calc(50% - 50vw) 25px;
+      min-height: 66px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 12px 25px;
+      overflow: hidden;
+      background: rgba(214, 155, 60, 0.82);
+      border: 1px solid rgba(255, 243, 217, 0.72);
+      border-radius: 0 0 24px 24px;
+      box-shadow: 0 10px 28px rgba(143, 91, 20, 0.2);
+      backdrop-filter: blur(20px) saturate(145%);
+      -webkit-backdrop-filter: blur(20px) saturate(145%);
+      transition:
+        width 0.5s ease,
+        margin 0.5s ease,
+        min-height 0.5s ease,
+        padding 0.5s ease,
+        border-radius 0.5s ease,
+        transform 0.5s ease,
+        background 0.5s ease;
+      transform-origin: center top;
+      isolation: isolate;
+    }
+
+    .ms-navbar-brand {
+      position: relative;
+      z-index: 1;
+      color: #3d2d0e;
+      font-size: 15px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .ms-navbar-links {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    .ms-navbar-link {
+      border: 1px solid rgba(61, 45, 14, 0.25);
+      border-radius: 12px;
+      padding: 9px 14px;
+      background: rgba(255, 255, 255, 0.3);
+      color: #3d2d0e;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 800;
+      transition: 0.25s ease;
+    }
+
+    .ms-navbar-link:hover,
+    .ms-navbar-link:focus-visible {
+      background: rgba(255, 255, 255, 0.58);
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    .ms-section[id] {
+      scroll-margin-top: 82px;
+    }
+
+    .ms-navbar.is-collapsed {
+      width: 100vw;
+      min-height: 66px;
+      margin: -25px calc(50% - 50vw) 25px;
+      padding: 8px 14px;
+      border-color: transparent;
+      background: transparent;
+      box-shadow: none;
+      transform: translateY(-2px);
+      justify-content: center;
+    }
+
+    .ms-navbar.is-collapsed:before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: 8px;
+      left: 50%;
+      width: min(430px, calc(100% - 24px));
+      height: 48px;
+      border-radius: 999px;
+      background: rgba(214, 155, 60, 0.92);
+      border: 1px solid rgba(255, 243, 217, 0.72);
+      box-shadow: 0 10px 28px rgba(143, 91, 20, 0.22);
+      transform: translateX(-50%);
+      transition:
+        width 0.5s ease,
+        border-radius 0.5s ease,
+        background 0.5s ease;
+    }
+
+    .ms-navbar.is-collapsed:hover,
+    .ms-navbar.is-collapsed:focus-within,
+    .ms-navbar.is-collapsed.is-hovered {
+      width: 100vw;
+      min-height: 66px;
+      margin: -25px calc(50% - 50vw) 25px;
+      padding: 12px 25px;
+      border-color: rgba(255, 243, 217, 0.72);
+      background: rgba(214, 155, 60, 0.82);
+      box-shadow: 0 10px 28px rgba(143, 91, 20, 0.2);
+      border-radius: 0 0 24px 24px;
+      transform: translateY(0);
+    }
+
+    .ms-navbar.is-collapsed:hover:before,
+    .ms-navbar.is-collapsed:focus-within:before,
+    .ms-navbar.is-collapsed.is-hovered:before {
+      width: 100%;
+      height: 100%;
+      top: 0;
+      border-radius: 0 0 24px 24px;
+      background: transparent;
+      border: 0;
+      box-shadow: none;
+    }
+
+    .ms-header {
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+      background: linear-gradient(
+        135deg,
+        rgba(31, 93, 88, 0.78),
+        rgba(47, 125, 114, 0.58)
+      );
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(18px) saturate(135%);
+      -webkit-backdrop-filter: blur(18px) saturate(135%);
+      border-radius: 28px;
+      padding: 35px;
+      color: white;
+      box-shadow: var(--shadow);
+      margin-bottom: 25px;
+    }
+
+    .ms-header:before {
+      content: "";
+      position: absolute;
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      background: rgba(214, 155, 60, 0.2);
+      left: -90px;
+      top: -120px;
+    }
+
+    .ms-header:after {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      right: -70px;
+      bottom: -90px;
+    }
+
+    .ms-header-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .ms-top-buttons {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 5;
+      display: flex;
+      gap: 8px;
+    }
+
+    .ms-top-btn {
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
+      color: white;
+      border-radius: 12px;
+      padding: 9px 13px;
+      cursor: pointer;
+      font-family: inherit;
+      font-weight: bold;
+    }
+
+    .ms-header-nav {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .ms-header-nav-btn {
+      border: 1px solid rgba(255, 255, 255, 0.48);
+      border-radius: 14px;
+      padding: 10px 17px;
+      background: rgba(255, 255, 255, 0.16);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      color: white;
+      cursor: pointer;
+      font-family: inherit;
+      font-weight: 800;
+      transition: 0.25s ease;
+    }
+
+    .ms-header-nav-btn:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.28);
+    }
+
+    .ms-header-nav-btn:focus-visible {
+      outline: 3px solid rgba(255, 243, 217, 0.9);
+      outline-offset: 3px;
+    }
+
+    .ms-badge {
+      display: inline-block;
+      background: var(--yellow);
+      color: #3d2d0e;
+      padding: 7px 14px;
+      border-radius: 50px;
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .ms-header h1 {
+      margin: 0 0 10px;
+      font-size: 32px;
+      font-weight: 900;
+    }
+
+    .ms-header p {
+      margin: 0;
+      opacity: 0.9;
+      font-size: 15px;
+      line-height: 1.9;
+    }
+
+    .ms-dashboard {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .ms-stat {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ms-stat:before {
+      content: "";
+      position: absolute;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: var(--green-light);
+      left: -20px;
+      bottom: -20px;
+    }
+
+    .ms-stat-title {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 7px;
+    }
+
+    .ms-stat-number {
+      font-size: 27px;
+      font-weight: 900;
+      color: var(--green-dark);
+    }
+
+    .ms-stat small {
+      color: var(--muted);
+    }
+
+    .ms-section {
+      margin-bottom: 28px;
+    }
+
+    .ms-section-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+      gap: 10px;
+    }
+
+    .ms-section-title h2 {
+      margin: 0;
+      font-size: 22px;
+      color: var(--dark);
+    }
+
+    .ms-section-title span {
+      background: var(--yellow-light);
+      color: #795a20;
+      border: 1px solid #e7c982;
+      padding: 6px 12px;
+      border-radius: 30px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .ms-days {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+    }
+
+    .ms-day-btn {
+      flex: 1;
+      min-width: 95px;
+      border: 1px solid var(--border);
+      background: var(--white);
+      border-radius: 15px;
+      padding: 13px 8px;
+      cursor: pointer;
+      transition: 0.25s;
+      font-family: inherit;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .ms-day-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .ms-day-btn.active {
+      background: var(--green);
+      color: white;
+      border-color: var(--green);
+      box-shadow: 0 8px 18px rgba(47, 125, 114, 0.25);
+    }
+
+    .ms-day-btn.friday {
+      background: var(--yellow-light);
+      border-color: #e5c57b;
+    }
+
+    .ms-day-btn.friday:hover {
+      background: var(--yellow);
+      border-color: var(--yellow);
+      color: #3d2d0e;
+    }
+
+    .ms-day-btn.friday.active {
+      background: var(--green);
+      border-color: var(--green);
+      color: white;
+      box-shadow: 0 8px 18px rgba(47, 125, 114, 0.25);
+    }
+
+    .ms-plan {
+      display: grid;
+      gap: 13px;
+    }
+
+    .ms-plan-editor {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 9px;
+      margin-bottom: 15px;
+      padding: 15px;
+      background: var(--green-light);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+    }
+
+    .ms-plan-editor label {
+      display: grid;
+      gap: 5px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .ms-plan-editor input,
+    .ms-plan-editor select {
+      width: 100%;
+      min-width: 0;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      padding: 9px;
+      background: var(--white);
+      color: var(--text);
+      font-family: inherit;
+    }
+
+    .ms-plan-editor-actions {
+      display: flex;
+      align-items: end;
+      gap: 7px;
+      grid-column: 1 / -1;
+      flex-wrap: wrap;
+    }
+
+    .ms-plan-editor button,
+    .ms-block-actions button {
+      border: 0;
+      border-radius: 9px;
+      padding: 9px 13px;
+      cursor: pointer;
+      font-family: inherit;
+      font-weight: bold;
+    }
+
+    .ms-plan-save {
+      background: var(--green);
+      color: white;
+    }
+
+    .ms-plan-cancel,
+    .ms-block-edit {
+      background: var(--yellow-light);
+      color: #795a20;
+    }
+
+    .ms-plan-data {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      width: 100%;
+      margin-top: 3px;
+    }
+
+    .ms-plan-data button {
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      padding: 9px 12px;
+      background: var(--white);
+      color: var(--green-dark);
+      cursor: pointer;
+      font-family: inherit;
+      font-weight: bold;
+    }
+
+    .ms-block-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .ms-block-delete {
+      background: #f8e3e3;
+      color: #9a4141;
+    }
+
+    .ms-block {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 18px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 15px;
+      align-items: center;
+      box-shadow: 0 7px 20px rgba(20, 80, 45, 0.06);
+      transition: 0.25s;
+    }
+
+    .ms-block:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .ms-time {
+      font-size: 12px;
+      color: var(--green);
+      font-weight: 900;
+      margin-bottom: 5px;
+    }
+
+    .ms-block-title {
+      font-size: 17px;
+      font-weight: 900;
+      color: var(--dark);
+    }
+
+    .ms-block-desc {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 6px;
+      line-height: 1.8;
+    }
+
+    .ms-subject {
+      display: inline-block;
+      margin-top: 9px;
+      padding: 4px 9px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: bold;
+    }
+
+    .bio {
+      background: #e8f7ed;
+      color: #11753a;
+    }
+    .chem {
+      background: #fff4c8;
+      color: #756000;
+    }
+    .math {
+      background: #e8f0ff;
+      color: #315c9c;
+    }
+    .physics {
+      background: #f3e8ff;
+      color: #70429b;
+    }
+    .review {
+      background: #eeeeee;
+      color: #555;
+    }
+    .test {
+      background: #ffe7a6;
+      color: #765700;
+    }
+
+    .ms-timer {
+      min-width: 245px;
+      text-align: center;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 17px;
+      padding: 12px;
+    }
+
+    .ms-timer-display {
+      font-family: monospace;
+      direction: ltr;
+      font-size: 25px;
+      font-weight: 900;
+      color: var(--green-dark);
+      letter-spacing: 1px;
+      margin-bottom: 9px;
+    }
+
+    .ms-timer-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .ms-timer-buttons button {
+      border: 0;
+      border-radius: 10px;
+      padding: 7px 11px;
+      cursor: pointer;
+      font-family: inherit;
+      font-weight: bold;
+      font-size: 11px;
+      transition: 0.2s;
+    }
+
+    .ms-start {
+      background: var(--green);
+      color: white;
+    }
+    .ms-pause {
+      background: #e8eee9;
+      color: #345;
+    }
+    .ms-reset {
+      background: var(--yellow);
+      color: #473d00;
+    }
+
+    .ms-timer-buttons button:hover {
+      transform: translateY(-1px);
+    }
+
+    .ms-subject-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .ms-subject-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .ms-subject-card h3 {
+      margin: 0 0 4px;
+      font-size: 17px;
+    }
+
+    .ms-subject-card p {
+      margin: 0 0 15px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .ms-score-input {
+      display: flex;
+      gap: 7px;
+    }
+
+    .ms-score-input input {
+      width: 100%;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--text);
+      border-radius: 11px;
+      padding: 10px;
+      outline: none;
+      font-family: inherit;
+      direction: ltr;
+      text-align: center;
+    }
+
+    .ms-score-input button {
+      border: 0;
+      background: var(--green);
+      color: white;
+      border-radius: 11px;
+      padding: 0 13px;
+      cursor: pointer;
+      font-family: inherit;
+      font-weight: bold;
+    }
+
+    .ms-score {
+      margin-top: 14px;
+      font-size: 30px;
+      font-weight: 900;
+      color: var(--green-dark);
+    }
+
+    .ms-score-label {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    /* NEGATIVE SCORE */
+
+    .ms-negative-box {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+    }
+
+    .ms-negative-title {
+      font-size: 12px;
+      font-weight: bold;
+      color: var(--green-dark);
+      margin-bottom: 8px;
+    }
+
+    .ms-negative-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 5px;
+    }
+
+    .ms-negative-grid input {
+      width: 100%;
+      padding: 7px 4px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--bg);
+      color: var(--text);
+      text-align: center;
+      font-family: inherit;
+      font-size: 11px;
+    }
+
+    .ms-negative-label {
+      font-size: 9px;
+      color: var(--muted);
+      text-align: center;
+      margin-bottom: 3px;
+    }
+
+    .ms-negative-result {
+      margin-top: 9px;
+      font-size: 12px;
+      font-weight: bold;
+      color: var(--green-dark);
+      text-align: center;
+    }
+
+    /* CHARTS */
+
+    .ms-charts {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 17px;
+    }
+
+    .ms-chart-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .ms-chart-card h3 {
+      margin: 0 0 15px;
+      font-size: 16px;
+    }
+
+    .ms-line-chart {
+      width: 100%;
+      height: 250px;
+      display: block;
+      overflow: visible;
+    }
+
+    .ms-line-grid {
+      stroke: var(--border);
+      stroke-width: 1;
+      stroke-dasharray: 3 5;
+    }
+
+    .ms-line-path {
+      fill: none;
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 900;
+      stroke-dashoffset: 900;
+      animation: msLineDraw 1.1s ease forwards;
+    }
+
+    .ms-line-point {
+      stroke: var(--white);
+      stroke-width: 2;
+    }
+
+    .ms-line-axis,
+    .ms-line-label {
+      fill: var(--muted);
+      font-family: Tahoma, "Vazirmatn", Arial, sans-serif;
+      font-size: 10px;
+    }
+
+    .ms-line-empty {
+      fill: var(--muted);
+      font-size: 13px;
+      text-anchor: middle;
+    }
+
+    .ms-chart-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 14px;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .ms-chart-legend span:before {
+      content: "";
+      display: inline-block;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--legend-color);
+      margin-left: 4px;
+    }
+
+    @keyframes msLineDraw {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    .ms-history-form {
+      display: grid;
+      grid-template-columns: 1fr 170px auto;
+      gap: 9px;
+      align-items: end;
+      margin-bottom: 15px;
+    }
+
+    .ms-history-form label {
+      display: grid;
+      gap: 5px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .ms-history-form input {
+      min-width: 0;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px;
+      background: var(--bg);
+      color: var(--text);
+      font-family: inherit;
+    }
+
+    .ms-history-form button {
+      border: 0;
+      border-radius: 10px;
+      padding: 11px 15px;
+      background: var(--green);
+      color: white;
+      cursor: pointer;
+      font-family: inherit;
+      font-weight: bold;
+    }
+
+    .ms-data-tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .ms-data-tools button {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 9px 13px;
+      background: var(--green-light);
+      color: var(--green-dark);
+      cursor: pointer;
+      font-family: inherit;
+      font-weight: bold;
+    }
+
+    .ms-data-tools button:hover {
+      transform: translateY(-1px);
+    }
+
+    .ms-data-help {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.8;
+    }
+
+    .ms-overall-chart-card {
+      grid-column: 1 / -1;
+    }
+
+    .ms-history-table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+    }
+
+    .ms-history-table {
+      width: 100%;
+      min-width: 640px;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+
+    .ms-history-table th,
+    .ms-history-table td {
+      padding: 10px 8px;
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .ms-history-table th {
+      background: var(--green-light);
+      color: var(--green-dark);
+    }
+
+    .ms-history-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .ms-delete-history {
+      border: 0;
+      background: transparent;
+      color: #b55353;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 11px;
+    }
+
+    .ms-history-empty {
+      color: var(--muted);
+      text-align: center;
+      padding: 18px;
+      font-size: 12px;
+    }
+
+    /* RESULT */
+
+    .ms-result {
+      background: linear-gradient(135deg, var(--white), var(--green-light));
+      border: 2px solid #cfe8d6;
+      border-radius: 25px;
+      padding: 25px;
+      box-shadow: var(--shadow);
+    }
+
+    .ms-result-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .ms-result-number {
+      font-size: 50px;
+      font-weight: 900;
+      color: var(--green-dark);
+      direction: ltr;
+    }
+
+    .ms-result-number span {
+      font-size: 20px;
+    }
+
+    .ms-result-text {
+      color: var(--muted);
+      line-height: 2;
+      font-size: 13px;
+    }
+
+    .ms-result-progress {
+      margin-top: 12px;
+      height: 12px;
+      border-radius: 20px;
+      background: #dfe9e2;
+      overflow: hidden;
+    }
+
+    .ms-result-progress div {
+      height: 100%;
+      width: 0;
+      background: linear-gradient(
+        90deg,
+        var(--green-dark),
+        var(--green),
+        var(--yellow)
+      );
+      border-radius: 20px;
+      transition: 0.7s;
+    }
+
+    /* EXAM RESULTS */
+
+    .ms-exam-result {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    .ms-exam-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px;
+      text-align: center;
+    }
+
+    .ms-exam-item strong {
+      display: block;
+      font-size: 20px;
+      color: var(--green-dark);
+      direction: ltr;
+    }
+
+    .ms-exam-item small {
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    /* RULES */
+
+    .ms-rules {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    .ms-rule {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 17px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.04);
+    }
+
+    .ms-rule strong {
+      display: block;
+      color: var(--green-dark);
+      margin-bottom: 5px;
+    }
+
+    .ms-rule span {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.9;
+    }
+
+    .ms-footer {
+      text-align: center;
+      padding: 25px 5px 5px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    /* PERSIAN CALENDAR */
+
+    .ms-calendar {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .ms-calendar-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .ms-calendar-toolbar button {
+      border: 1px solid var(--border);
+      background: var(--green-light);
+      color: var(--green-dark);
+      border-radius: 10px;
+      width: 38px;
+      height: 38px;
+      font-size: 20px;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .ms-calendar-month {
+      font-size: 18px;
+      font-weight: 900;
+      color: var(--dark);
+    }
+
+    .ms-calendar-weekdays,
+    .ms-calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 7px;
+    }
+
+    .ms-calendar-weekdays {
+      margin-bottom: 7px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .ms-calendar-day {
+      min-height: 58px;
+      border: 1px solid var(--border);
+      border-radius: 11px;
+      background: var(--bg);
+      color: var(--text);
+      padding: 8px;
+      text-align: right;
+      cursor: pointer;
+      font-family: inherit;
+      font-weight: bold;
+      position: relative;
+    }
+
+    .ms-calendar-day:hover,
+    .ms-calendar-day.selected {
+      border-color: var(--green);
+      background: var(--green-light);
+    }
+
+    .ms-calendar-day.today {
+      box-shadow: inset 0 0 0 2px var(--yellow);
+    }
+
+    .ms-calendar-day.empty {
+      visibility: hidden;
+      cursor: default;
+    }
+
+    .ms-calendar-day.has-note:after {
+      content: "";
+      position: absolute;
+      bottom: 7px;
+      left: 8px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--yellow);
+    }
+
+    .ms-calendar-note {
+      margin-top: 17px;
+      padding-top: 17px;
+      border-top: 1px solid var(--border);
+    }
+
+    .ms-calendar-note-title {
+      font-weight: 900;
+      color: var(--dark);
+      margin-bottom: 9px;
+    }
+
+    .ms-calendar-note textarea {
+      width: 100%;
+      min-height: 90px;
+      resize: vertical;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 11px;
+      background: var(--bg);
+      color: var(--text);
+      font-family: inherit;
+      line-height: 1.8;
+      outline: none;
+    }
+
+    .ms-calendar-note button {
+      margin-top: 8px;
+      border: 0;
+      background: var(--green);
+      color: white;
+      border-radius: 10px;
+      padding: 9px 16px;
+      cursor: pointer;
+      font-family: inherit;
+      font-weight: bold;
+    }
+
+    /* SLIDER + SCROLL MOTION */
+
+    .ms-slider {
+      position: relative;
+      min-height: 210px;
+      overflow: hidden;
+      border-radius: 24px;
+      margin-bottom: 25px;
+      background: linear-gradient(120deg, var(--green-dark), var(--green));
+      box-shadow: var(--shadow);
+      isolation: isolate;
+    }
+
+    .ms-slider:before,
+    .ms-slider:after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .ms-slider:before {
+      width: 220px;
+      height: 220px;
+      background: rgba(245, 197, 24, 0.2);
+      left: -75px;
+      bottom: -140px;
+    }
+
+    .ms-slider:after {
+      width: 280px;
+      height: 280px;
+      background: rgba(255, 255, 255, 0.08);
+      right: -100px;
+      top: -170px;
+    }
+
+    .ms-slide {
+      display: none;
+      min-height: 210px;
+      padding: 32px 76px 48px 32px;
+      color: white;
+      animation: msSlideIn 0.65s ease both;
+    }
+
+    .ms-slide.active {
+      display: block;
+    }
+
+    .ms-slide-kicker {
+      color: var(--yellow);
+      font-size: 12px;
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+
+    .ms-slide h2 {
+      margin: 0 0 9px;
+      font-size: 25px;
+    }
+
+    .ms-slide p {
+      max-width: 650px;
+      margin: 0;
+      line-height: 2;
+      opacity: 0.9;
+      font-size: 14px;
+    }
+
+    .ms-slider-arrow {
+      position: absolute;
+      top: 50%;
+      z-index: 2;
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.14);
+      color: white;
+      cursor: pointer;
+      transform: translateY(-50%);
+      font-size: 20px;
+      line-height: 1;
+    }
+
+    .ms-slider-arrow:hover {
+      background: rgba(255, 255, 255, 0.28);
+    }
+
+    .ms-slider-arrow.prev {
+      right: 17px;
+    }
+
+    .ms-slider-arrow.next {
+      left: 17px;
+    }
+
+    .ms-slider-dots {
+      position: absolute;
+      right: 32px;
+      bottom: 18px;
+      display: flex;
+      gap: 7px;
+    }
+
+    .ms-slider-dot {
+      width: 8px;
+      height: 8px;
+      padding: 0;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.45);
+      cursor: pointer;
+      transition: 0.25s;
+    }
+
+    .ms-slider-dot.active {
+      width: 24px;
+      border-radius: 8px;
+      background: var(--yellow);
+    }
+
+    #mahdi-study-app.dark .ms-slider {
+      background: linear-gradient(135deg, #173d43, #1d303b 58%, #254c57);
+      border: 1px solid #496977;
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.4);
+    }
+
+    #mahdi-study-app.dark .ms-slider:before {
+      background: rgba(101, 224, 199, 0.16);
+    }
+
+    #mahdi-study-app.dark .ms-slider:after {
+      background: rgba(244, 200, 102, 0.1);
+    }
+
+    #mahdi-study-app.dark .ms-slide-kicker {
+      color: #f4c866;
+    }
+
+    #mahdi-study-app.dark .ms-slider-arrow {
+      border-color: rgba(192, 255, 241, 0.58);
+      background: rgba(101, 224, 199, 0.16);
+      color: #ffffff;
+    }
+
+    #mahdi-study-app.dark .ms-slider-arrow:hover {
+      background: #65e0c7;
+      color: #10242d;
+    }
+
+    #mahdi-study-app.dark .ms-slider-dot {
+      background: rgba(255, 255, 255, 0.52);
+    }
+
+    #mahdi-study-app.dark .ms-slider-dot.active {
+      background: #f4c866;
+    }
+
+    .ms-back-to-top {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 35;
+      width: 46px;
+      height: 46px;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      border-radius: 50%;
+      background: rgba(47, 125, 114, 0.78);
+      color: white;
+      box-shadow: 0 10px 24px rgba(20, 70, 65, 0.24);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      cursor: pointer;
+      font-size: 22px;
+      font-weight: 900;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(14px) scale(0.86);
+      transition: 0.3s ease;
+    }
+
+    .ms-back-to-top.is-visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0) scale(1);
+    }
+
+    .ms-back-to-top:hover,
+    .ms-back-to-top:focus-visible {
+      background: var(--yellow);
+      border-color: #fff0bd;
+      color: #3d2d0e;
+      transform: translateY(-3px) scale(1.04);
+      outline: none;
+    }
+
+    #mahdi-study-app.dark .ms-back-to-top {
+      background: rgba(101, 224, 199, 0.86);
+      border-color: #c0fff1;
+      color: #10242d;
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.42);
+    }
+
+    #mahdi-study-app.dark .ms-back-to-top:hover,
+    #mahdi-study-app.dark .ms-back-to-top:focus-visible {
+      background: #f4c866;
+      color: #18252b;
+      border-color: #fff0bd;
+    }
+
+    .ms-reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+    }
+
+    .ms-reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes msSlideIn {
+      from {
+        opacity: 0;
+        transform: translateX(22px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @media (max-width: 560px) {
+      #mahdi-study-app {
+        padding: 10px;
+        overflow: hidden;
+      }
+
+      .ms-header {
+        padding: 22px 16px;
+      }
+
+      .ms-header h1 {
+        font-size: 23px;
+      }
+
+      .ms-header p {
+        font-size: 13px;
+      }
+
+      .ms-top-buttons {
+        position: relative;
+        top: auto;
+        left: auto;
+        flex-wrap: wrap;
+        margin-bottom: 15px;
+      }
+
+      .ms-header-nav {
+        margin-top: 18px;
+      }
+
+      .ms-header-nav-btn {
+        flex: 1 1 140px;
+        padding-inline: 10px;
+        font-size: 12px;
+      }
+
+      .ms-top-btn {
+        padding: 8px 10px;
+        font-size: 11px;
+      }
+
+      .ms-dashboard {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+
+      .ms-stat {
+        padding: 14px 11px;
+        border-radius: 16px;
+      }
+
+      .ms-stat-title {
+        font-size: 11px;
+      }
+
+      .ms-section-title {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .ms-section-title span {
+        align-self: flex-start;
+      }
+
+      .ms-block {
+        padding: 14px;
+      }
+
+      .ms-block-title {
+        font-size: 15px;
+      }
+
+      .ms-timer {
+        min-width: 0;
+        padding: 10px 8px;
+      }
+
+      .ms-plan-editor {
+        grid-template-columns: 1fr;
+      }
+
+      .ms-plan-editor-actions {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .ms-plan-data,
+      .ms-plan-data button {
+        width: 100%;
+      }
+
+      .ms-timer-buttons,
+      .ms-score-input {
+        flex-wrap: wrap;
+      }
+
+      .ms-score-input {
+        flex-direction: column;
+      }
+
+      .ms-score-input button {
+        min-height: 40px;
+      }
+
+      .ms-chart {
+        gap: 7px;
+        padding-inline: 2px;
+      }
+
+      .ms-chart-bar {
+        width: 12%;
+      }
+
+      .ms-result {
+        padding: 18px;
+      }
+
+      .ms-result-number {
+        font-size: 38px;
+      }
+
+      .ms-slide p {
+        font-size: 12px;
+        line-height: 1.85;
+      }
+
+      .ms-slider-arrow {
+        width: 32px;
+        height: 32px;
+        font-size: 17px;
+      }
+
+      .ms-calendar-note textarea {
+        min-height: 110px;
+      }
+
+      .ms-history-form {
+        grid-template-columns: 1fr;
+      }
+
+      .ms-history-form button {
+        width: 100%;
+      }
+
+      .ms-data-tools button {
+        flex: 1 1 100%;
+      }
+    }
+
+    @media (max-width: 380px) {
+      #mahdi-study-app {
+        padding: 7px;
+      }
+
+      .ms-header {
+        padding: 20px 14px;
+      }
+
+      .ms-header h1 {
+        font-size: 21px;
+      }
+
+      .ms-dashboard {
+        grid-template-columns: 1fr;
+      }
+
+      .ms-stat {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: center;
+        gap: 4px 8px;
+      }
+
+      .ms-stat-number {
+        grid-column: 2;
+        grid-row: 1 / span 2;
+        font-size: 21px;
+      }
+
+      .ms-slide {
+        min-height: 245px;
+        padding: 25px 48px 48px 16px;
+      }
+
+      .ms-slide h2 {
+        font-size: 19px;
+      }
+
+      .ms-calendar {
+        padding: 10px;
+      }
+
+      .ms-calendar-weekdays,
+      .ms-calendar-grid {
+        gap: 2px;
+      }
+
+      .ms-calendar-day {
+        min-height: 41px;
+        padding: 4px;
+        border-radius: 8px;
+        font-size: 11px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .ms-dashboard,
+      .ms-subject-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .ms-block {
+        grid-template-columns: 1fr;
+      }
+      .ms-timer {
+        width: 100%;
+      }
+      .ms-charts,
+      .ms-rules,
+      .ms-result-grid {
+        grid-template-columns: 1fr;
+      }
+      .ms-exam-result {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 560px) {
+      #mahdi-study-app {
+        padding: 10px;
+        border-radius: 18px;
+      }
+      .ms-header {
+        padding: 25px 20px;
+        border-radius: 22px;
+      }
+      .ms-header h1 {
+        font-size: 24px;
+      }
+      .ms-dashboard {
+        grid-template-columns: 1fr 1fr;
+      }
+      .ms-subject-grid {
+        grid-template-columns: 1fr;
+      }
+      .ms-stat-number {
+        font-size: 23px;
+      }
+      .ms-block {
+        padding: 14px;
+      }
+      .ms-block-title {
+        font-size: 15px;
+      }
+      .ms-chart-card {
+        padding: 16px;
+      }
+      .ms-top-buttons {
+        position: relative;
+        top: auto;
+        left: auto;
+        margin-bottom: 15px;
+        justify-content: flex-start;
+      }
+
+      .ms-calendar {
+        padding: 14px;
+      }
+
+      .ms-slide {
+        min-height: 235px;
+        padding: 27px 58px 48px 20px;
+      }
+
+      .ms-slide h2 {
+        font-size: 21px;
+      }
+
+      .ms-slider-dots {
+        right: 20px;
+      }
+
+      .ms-calendar-weekdays,
+      .ms-calendar-grid {
+        gap: 4px;
+      }
+      .ms-calendar-day {
+        min-height: 46px;
+        padding: 6px;
+        font-size: 12px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      #mahdi-study-app {
+        overflow: hidden;
+      }
+
+      .ms-top-buttons {
+        flex-wrap: wrap;
+      }
+
+      .ms-section-title {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .ms-section-title span {
+        align-self: flex-start;
+      }
+
+      .ms-timer {
+        min-width: 0;
+      }
+
+      .ms-timer-buttons {
+        flex-wrap: wrap;
+      }
+
+      .ms-score-input {
+        flex-direction: column;
+      }
+
+      .ms-score-input button {
+        min-height: 40px;
+      }
+
+      .ms-chart {
+        gap: 7px;
+        padding-inline: 2px;
+      }
+
+      .ms-chart-bar {
+        width: 12%;
+      }
+
+      .ms-result {
+        padding: 18px;
+      }
+
+      .ms-result-number {
+        font-size: 38px;
+      }
+
+      .ms-slide p {
+        font-size: 12px;
+        line-height: 1.85;
+      }
+
+      .ms-slider-arrow {
+        width: 32px;
+        height: 32px;
+        font-size: 17px;
+      }
+
+      .ms-calendar-note textarea {
+        min-height: 110px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      #mahdi-study-app {
+        padding: 7px;
+      }
+
+      .ms-header {
+        padding: 20px 14px;
+      }
+
+      .ms-header h1 {
+        font-size: 21px;
+      }
+
+      .ms-dashboard {
+        grid-template-columns: 1fr;
+      }
+
+      .ms-stat {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: center;
+        gap: 4px 8px;
+      }
+
+      .ms-stat-number {
+        grid-column: 2;
+        grid-row: 1 / span 2;
+        font-size: 21px;
+      }
+
+      .ms-slide {
+        min-height: 245px;
+        padding: 25px 48px 48px 16px;
+      }
+
+      .ms-slide h2 {
+        font-size: 19px;
+      }
+
+      .ms-calendar {
+        padding: 10px;
+      }
+
+      .ms-calendar-weekdays,
+      .ms-calendar-grid {
+        gap: 2px;
+      }
+
+      .ms-calendar-day {
+        min-height: 41px;
+        padding: 4px;
+        border-radius: 8px;
+        font-size: 11px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .ms-navbar {
+        display: none;
+      }
+
+      .ms-navbar,
+      .ms-header,
+      .ms-slider {
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+      }
+
+      .ms-navbar {
+        width: 100vw;
+        margin: -10px calc(50% - 50vw) 18px;
+        padding: 10px;
+        gap: 8px;
+        border-radius: 0 0 18px 18px;
+      }
+
+      .ms-navbar-brand {
+        display: none;
+      }
+
+      .ms-navbar-links {
+        gap: 5px;
+      }
+
+      .ms-navbar-link {
+        padding: 8px 9px;
+        font-size: 11px;
+      }
+
+      .ms-navbar.is-collapsed {
+        width: 100vw;
+        margin: -10px calc(50% - 50vw) 18px;
+        padding: 7px 10px;
+      }
+
+      .ms-navbar.is-collapsed:before {
+        top: 6px;
+        height: 42px;
+      }
+
+      .ms-navbar.is-collapsed:hover,
+      .ms-navbar.is-collapsed:focus-within,
+      .ms-navbar.is-collapsed.is-hovered {
+        width: 100vw;
+        margin: -10px calc(50% - 50vw) 18px;
+        padding: 10px;
+        border-radius: 0 0 18px 18px;
+      }
+    }
+  
