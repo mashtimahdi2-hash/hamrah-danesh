@@ -1,0 +1,787 @@
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, viewport-fit=cover"
+/>
+
+<div id="mahdi-study-app" dir="rtl">
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- HEADER -->
+
+  <nav class="ms-navbar" id="studyNavbar" aria-label="نوار ناوبری اصلی">
+    <div class="ms-navbar-brand">✦ داشبورد مطالعه</div>
+    <div class="ms-navbar-links">
+      <button
+        class="ms-navbar-link"
+        type="button"
+        onclick="goToSection('weeklyPlanSection')"
+      >
+        📅 برنامه هفتگی
+      </button>
+      <button
+        class="ms-navbar-link"
+        type="button"
+        onclick="goToSection('examScoresSection')"
+      >
+        🎯 آزمون
+      </button>
+    </div>
+  </nav>
+
+  <button
+    class="ms-back-to-top"
+    id="backToTopButton"
+    type="button"
+    aria-label="بازگشت به بالای سایت"
+    title="بازگشت به بالا"
+  >
+    ↑
+  </button>
+
+  <header class="ms-header" id="studyHeader">
+    <div class="ms-top-buttons">
+      <button
+        class="ms-top-btn"
+        type="button"
+        aria-label="تغییر حالت شب و روز"
+        onclick="toggleDarkMode()"
+      >
+        🌙☀️ حالت شب و روز
+      </button>
+
+      <button class="ms-top-btn" onclick="enableAlarm()">
+        🔔 فعال‌سازی آلارم
+      </button>
+    </div>
+
+    <div class="ms-header-content">
+      <div class="ms-badge">دهم تجربی • داشبورد مطالعه</div>
+
+      <h1>برنامه مطالعاتی هوشمند من</h1>
+
+      <p>
+        زیست‌شناسی، شیمی، ریاضی و فیزیک
+        <br />
+        مطالعه کن، تایمر بزن، درصدت را ثبت کن و پیشرفتت را ببین.
+      </p>
+    </div>
+  </header>
+
+  <!-- STUDY SLIDER -->
+
+  <div class="ms-slider" id="studySlider" aria-label="پیام‌های انگیزشی مطالعه">
+    <article class="ms-slide active">
+      <div class="ms-slide-kicker">یک قدم کوچک، یک پیشرفت واقعی</div>
+      <h2>امروز فقط شروع کن</h2>
+      <p>
+        یک بلوک مطالعه را با تمرکز کامل انجام بده؛ استمرار تو از یک روز ایده‌آل
+        مهم‌تر است.
+      </p>
+    </article>
+
+    <article class="ms-slide">
+      <div class="ms-slide-kicker">تمرکز عمیق</div>
+      <h2>زمانت را به نتیجه تبدیل کن</h2>
+      <p>
+        تایمر را روشن کن، اعلان‌ها را کنار بگذار و بعد از هر بلوک یک استراحت
+        کوتاه داشته باش.
+      </p>
+    </article>
+
+    <article class="ms-slide">
+      <div class="ms-slide-kicker">مرور هوشمند</div>
+      <h2>پیشرفتت را ثبت کن</h2>
+      <p>
+        درصدها و یادداشت‌های تقویم را ثبت کن تا مسیر رشدت هر روز واضح‌تر دیده
+        شود.
+      </p>
+    </article>
+
+    <button class="ms-slider-arrow prev" type="button" aria-label="اسلاید قبلی">
+      ›
+    </button>
+    <button class="ms-slider-arrow next" type="button" aria-label="اسلاید بعدی">
+      ‹
+    </button>
+    <div class="ms-slider-dots" role="tablist" aria-label="انتخاب اسلاید">
+      <button
+        class="ms-slider-dot active"
+        type="button"
+        aria-label="اسلاید ۱"
+      ></button>
+      <button
+        class="ms-slider-dot"
+        type="button"
+        aria-label="اسلاید ۲"
+      ></button>
+      <button
+        class="ms-slider-dot"
+        type="button"
+        aria-label="اسلاید ۳"
+      ></button>
+    </div>
+  </div>
+
+  <!-- DASHBOARD -->
+
+  <div class="ms-dashboard">
+    <div class="ms-stat">
+      <div class="ms-stat-title">ساعت مطالعه برنامه</div>
+      <div class="ms-stat-number">≈ ۳۰ ساعت</div>
+      <small>در هفته</small>
+    </div>
+
+    <div class="ms-stat">
+      <div class="ms-stat-title">زیست‌شناسی</div>
+      <div class="ms-stat-number" id="dashBio">—</div>
+      <small>آخرین درصد</small>
+    </div>
+
+    <div class="ms-stat">
+      <div class="ms-stat-title">شیمی</div>
+      <div class="ms-stat-number" id="dashChem">—</div>
+      <small>آخرین درصد</small>
+    </div>
+
+    <div class="ms-stat">
+      <div class="ms-stat-title">میانگین وزنی</div>
+      <div class="ms-stat-number" id="dashAverage">—</div>
+      <small>چهار درس</small>
+    </div>
+  </div>
+
+  <!-- WEEK -->
+
+  <div class="ms-section" id="weeklyPlanSection">
+    <div class="ms-section-title">
+      <h2>📅 برنامه هفتگی</h2>
+      <span>یک روز را انتخاب کن</span>
+    </div>
+
+    <div class="ms-days">
+      <button type="button" class="ms-day-btn active" data-day="sat">
+        شنبه
+      </button>
+      <button type="button" class="ms-day-btn" data-day="sun">یکشنبه</button>
+      <button type="button" class="ms-day-btn" data-day="mon">دوشنبه</button>
+      <button type="button" class="ms-day-btn" data-day="tue">سه‌شنبه</button>
+      <button type="button" class="ms-day-btn" data-day="wed">چهارشنبه</button>
+      <button type="button" class="ms-day-btn" data-day="thu">پنجشنبه</button>
+      <button type="button" class="ms-day-btn friday" data-day="fri">
+        جمعه
+      </button>
+    </div>
+  </div>
+
+  <!-- PLAN -->
+
+  <div class="ms-section">
+    <div class="ms-section-title">
+      <h2 id="selectedDayTitle">شنبه</h2>
+      <span id="selectedDayType">بدون کلاس زبان</span>
+    </div>
+
+    <div class="ms-plan-editor" id="planEditor">
+      <label>
+        نام درس
+        <select id="planSubject">
+          <option value="bio">زیست‌شناسی</option>
+          <option value="chem">شیمی</option>
+          <option value="math">ریاضی</option>
+          <option value="physics">فیزیک</option>
+          <option value="review">مرور و استراحت</option>
+          <option value="test">آزمون</option>
+        </select>
+      </label>
+      <label>
+        مبحث یا عنوان
+        <input id="planTopic" type="text" placeholder="مثلاً فصل اول زیست" />
+      </label>
+      <label>
+        شروع
+        <input id="planStart" type="time" value="16:00" />
+      </label>
+      <label>
+        پایان
+        <input id="planEnd" type="time" value="16:30" />
+      </label>
+      <label>
+        مدت مطالعه (دقیقه)
+        <input id="planMinutes" type="number" min="1" max="1440" value="30" />
+      </label>
+      <label>
+        توضیح کوتاه
+        <input
+          id="planDescription"
+          type="text"
+          placeholder="مطالعه، تست یا مرور"
+        />
+      </label>
+      <div class="ms-plan-editor-actions">
+        <button
+          class="ms-plan-save"
+          id="planSaveButton"
+          type="button"
+          onclick="savePlanBlock()"
+        >
+          افزودن به برنامه
+        </button>
+        <button
+          class="ms-plan-cancel"
+          id="planCancelButton"
+          type="button"
+          onclick="cancelPlanEdit()"
+          hidden
+        >
+          لغو ویرایش
+        </button>
+        <div class="ms-plan-data">
+          <button type="button" onclick="exportWeeklyPlan()">
+            ⬇️ برون‌ریزی برنامه هفتگی
+          </button>
+          <button
+            type="button"
+            onclick="document.getElementById('weeklyPlanFileInput').click()"
+          >
+            ⬆️ درون‌ریزی برنامه هفتگی
+          </button>
+          <input
+            id="weeklyPlanFileInput"
+            type="file"
+            accept="application/json,.json"
+            hidden
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="ms-plan" id="planContainer"></div>
+  </div>
+
+  <!-- SCORES -->
+
+  <div class="ms-section" id="examScoresSection">
+    <div class="ms-section-title">
+      <h2>🎯 ثبت درصد آزمون</h2>
+      <span>با نمره منفی</span>
+    </div>
+
+    <div class="ms-subject-grid">
+      <!-- BIO -->
+
+      <div class="ms-subject-card">
+        <h3>🧬 زیست‌شناسی</h3>
+        <p>ضریب مرجع: ۱۲</p>
+
+        <div class="ms-score-input">
+          <input
+            id="inputBio"
+            type="number"
+            min="0"
+            max="100"
+            placeholder="درصد مستقیم"
+          />
+          <button onclick="saveScore('bio')">ثبت</button>
+        </div>
+
+        <div class="ms-score" id="scoreBio">—</div>
+        <div class="ms-score-label">آخرین درصد ثبت‌شده</div>
+
+        <div class="ms-negative-box">
+          <div class="ms-negative-title">📝 محاسبه با نمره منفی</div>
+
+          <div class="ms-negative-grid">
+            <div>
+              <div class="ms-negative-label">صحیح</div>
+              <input id="bioCorrect" type="number" min="0" placeholder="۰" />
+            </div>
+
+            <div>
+              <div class="ms-negative-label">غلط</div>
+              <input id="bioWrong" type="number" min="0" placeholder="۰" />
+            </div>
+
+            <div>
+              <div class="ms-negative-label">کل</div>
+              <input id="bioTotal" type="number" min="1" placeholder="۰" />
+            </div>
+          </div>
+
+          <div class="ms-negative-result" id="bioExamResult">درصد آزمون: —</div>
+
+          <button
+            onclick="calculateExam('bio')"
+            style="
+              width: 100%;
+              margin-top: 8px;
+              border: 0;
+              background: var(--yellow);
+              color: #473d00;
+              border-radius: 9px;
+              padding: 8px;
+              cursor: pointer;
+              font-family: inherit;
+              font-weight: bold;
+            "
+          >
+            محاسبه آزمون
+          </button>
+        </div>
+      </div>
+
+      <!-- CHEM -->
+
+      <div class="ms-subject-card">
+        <h3>⚗️ شیمی</h3>
+        <p>ضریب مرجع: ۹</p>
+
+        <div class="ms-score-input">
+          <input
+            id="inputChem"
+            type="number"
+            min="0"
+            max="100"
+            placeholder="درصد مستقیم"
+          />
+          <button onclick="saveScore('chem')">ثبت</button>
+        </div>
+
+        <div class="ms-score" id="scoreChem">—</div>
+        <div class="ms-score-label">آخرین درصد ثبت‌شده</div>
+
+        <div class="ms-negative-box">
+          <div class="ms-negative-title">📝 محاسبه با نمره منفی</div>
+
+          <div class="ms-negative-grid">
+            <div>
+              <div class="ms-negative-label">صحیح</div>
+              <input id="chemCorrect" type="number" min="0" placeholder="۰" />
+            </div>
+
+            <div>
+              <div class="ms-negative-label">غلط</div>
+              <input id="chemWrong" type="number" min="0" placeholder="۰" />
+            </div>
+
+            <div>
+              <div class="ms-negative-label">کل</div>
+              <input id="chemTotal" type="number" min="1" placeholder="۰" />
+            </div>
+          </div>
+
+          <div class="ms-negative-result" id="chemExamResult">
+            درصد آزمون: —
+          </div>
+
+          <button
+            onclick="calculateExam('chem')"
+            style="
+              width: 100%;
+              margin-top: 8px;
+              border: 0;
+              background: var(--yellow);
+              color: #473d00;
+              border-radius: 9px;
+              padding: 8px;
+              cursor: pointer;
+              font-family: inherit;
+              font-weight: bold;
+            "
+          >
+            محاسبه آزمون
+          </button>
+        </div>
+      </div>
+
+      <!-- MATH -->
+
+      <div class="ms-subject-card">
+        <h3>📐 ریاضی</h3>
+        <p>ضریب مرجع: ۷</p>
+
+        <div class="ms-score-input">
+          <input
+            id="inputMath"
+            type="number"
+            min="0"
+            max="100"
+            placeholder="درصد مستقیم"
+          />
+          <button onclick="saveScore('math')">ثبت</button>
+        </div>
+
+        <div class="ms-score" id="scoreMath">—</div>
+        <div class="ms-score-label">آخرین درصد ثبت‌شده</div>
+
+        <div class="ms-negative-box">
+          <div class="ms-negative-title">📝 محاسبه با نمره منفی</div>
+
+          <div class="ms-negative-grid">
+            <div>
+              <div class="ms-negative-label">صحیح</div>
+              <input id="mathCorrect" type="number" min="0" placeholder="۰" />
+            </div>
+
+            <div>
+              <div class="ms-negative-label">غلط</div>
+              <input id="mathWrong" type="number" min="0" placeholder="۰" />
+            </div>
+
+            <div>
+              <div class="ms-negative-label">کل</div>
+              <input id="mathTotal" type="number" min="1" placeholder="۰" />
+            </div>
+          </div>
+
+          <div class="ms-negative-result" id="mathExamResult">
+            درصد آزمون: —
+          </div>
+
+          <button
+            onclick="calculateExam('math')"
+            style="
+              width: 100%;
+              margin-top: 8px;
+              border: 0;
+              background: var(--yellow);
+              color: #473d00;
+              border-radius: 9px;
+              padding: 8px;
+              cursor: pointer;
+              font-family: inherit;
+              font-weight: bold;
+            "
+          >
+            محاسبه آزمون
+          </button>
+        </div>
+      </div>
+
+      <!-- PHYSICS -->
+
+      <div class="ms-subject-card">
+        <h3>⚡ فیزیک</h3>
+        <p>ضریب مرجع: ۷</p>
+
+        <div class="ms-score-input">
+          <input
+            id="inputPhysics"
+            type="number"
+            min="0"
+            max="100"
+            placeholder="درصد مستقیم"
+          />
+          <button onclick="saveScore('physics')">ثبت</button>
+        </div>
+
+        <div class="ms-score" id="scorePhysics">—</div>
+        <div class="ms-score-label">آخرین درصد ثبت‌شده</div>
+
+        <div class="ms-negative-box">
+          <div class="ms-negative-title">📝 محاسبه با نمره منفی</div>
+
+          <div class="ms-negative-grid">
+            <div>
+              <div class="ms-negative-label">صحیح</div>
+              <input
+                id="physicsCorrect"
+                type="number"
+                min="0"
+                placeholder="۰"
+              />
+            </div>
+
+            <div>
+              <div class="ms-negative-label">غلط</div>
+              <input id="physicsWrong" type="number" min="0" placeholder="۰" />
+            </div>
+
+            <div>
+              <div class="ms-negative-label">کل</div>
+              <input id="physicsTotal" type="number" min="1" placeholder="۰" />
+            </div>
+          </div>
+
+          <div class="ms-negative-result" id="physicsExamResult">
+            درصد آزمون: —
+          </div>
+
+          <button
+            onclick="calculateExam('physics')"
+            style="
+              width: 100%;
+              margin-top: 8px;
+              border: 0;
+              background: var(--yellow);
+              color: #473d00;
+              border-radius: 9px;
+              padding: 8px;
+              cursor: pointer;
+              font-family: inherit;
+              font-weight: bold;
+            "
+          >
+            محاسبه آزمون
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHARTS -->
+
+  <div class="ms-section">
+    <div class="ms-section-title">
+      <h2>📊 نمودار درصدها</h2>
+      <span>روند پیشرفت و پسرفت آزمون‌ها</span>
+    </div>
+
+    <div class="ms-charts ms-history-charts">
+      <div class="ms-chart-card">
+        <h3>🧬 روند زیست‌شناسی</h3>
+        <svg
+          class="ms-line-chart"
+          id="bioProgressChart"
+          viewBox="0 0 720 250"
+          role="img"
+          aria-label="نمودار خطی زیست‌شناسی"
+        ></svg>
+      </div>
+      <div class="ms-chart-card">
+        <h3>⚗️ روند شیمی</h3>
+        <svg
+          class="ms-line-chart"
+          id="chemProgressChart"
+          viewBox="0 0 720 250"
+          role="img"
+          aria-label="نمودار خطی شیمی"
+        ></svg>
+      </div>
+      <div class="ms-chart-card">
+        <h3>📐 روند ریاضی</h3>
+        <svg
+          class="ms-line-chart"
+          id="mathProgressChart"
+          viewBox="0 0 720 250"
+          role="img"
+          aria-label="نمودار خطی ریاضی"
+        ></svg>
+      </div>
+      <div class="ms-chart-card">
+        <h3>⚡ روند فیزیک</h3>
+        <svg
+          class="ms-line-chart"
+          id="physicsProgressChart"
+          viewBox="0 0 720 250"
+          role="img"
+          aria-label="نمودار خطی فیزیک"
+        ></svg>
+      </div>
+      <div class="ms-chart-card ms-overall-chart-card">
+        <h3>🏆 روند نتیجه درصد کل</h3>
+        <svg
+          class="ms-line-chart"
+          id="overallProgressChart"
+          viewBox="0 0 720 250"
+          role="img"
+          aria-label="نمودار خطی نتیجه درصد کل"
+        ></svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXAM HISTORY DATABASE -->
+
+  <div class="ms-section">
+    <div class="ms-section-title">
+      <h2>🗂️ بانک نتایج آزمون‌ها</h2>
+      <span>ذخیره در همین مرورگر</span>
+    </div>
+
+    <div class="ms-chart-card">
+      <div class="ms-history-form">
+        <label>
+          نام آزمون
+          <input
+            id="historyExamName"
+            type="text"
+            placeholder="مثلاً آزمون جامع مهر"
+          />
+        </label>
+        <label>
+          تاریخ آزمون
+          <input id="historyExamDate" type="date" />
+        </label>
+        <button type="button" onclick="saveExamHistory()">
+          ثبت نتیجه فعلی
+        </button>
+      </div>
+
+      <div class="ms-data-tools">
+        <button type="button" onclick="exportStudyDatabase()">
+          ⬇️ خروجی گرفتن از اطلاعات
+        </button>
+        <button
+          type="button"
+          onclick="document.getElementById('databaseFileInput').click()"
+        >
+          ⬆️ وارد کردن فایل اطلاعات
+        </button>
+        <input
+          id="databaseFileInput"
+          type="file"
+          accept="application/json,.json"
+          hidden
+        />
+      </div>
+      <p class="ms-data-help">
+        فایل خروجی را در گوشی یا مرورگر دیگر انتخاب کن تا سوابق، درصدها،
+        یادداشت‌ها و تنظیمات منتقل شوند.
+      </p>
+
+      <div class="ms-history-table-wrap">
+        <table class="ms-history-table">
+          <thead>
+            <tr>
+              <th>آزمون</th>
+              <th>تاریخ</th>
+              <th>زیست</th>
+              <th>شیمی</th>
+              <th>ریاضی</th>
+              <th>فیزیک</th>
+              <th>نتیجه کلی</th>
+              <th>عملیات</th>
+            </tr>
+          </thead>
+          <tbody id="historyTableBody"></tbody>
+        </table>
+        <div class="ms-history-empty" id="historyEmpty">
+          هنوز نتیجه‌ای برای ذخیره وجود ندارد.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESULT -->
+
+  <div class="ms-section">
+    <div class="ms-section-title">
+      <h2>🏆 نتیجه کلی</h2>
+      <span>شاخص چهار درس</span>
+    </div>
+
+    <div class="ms-result">
+      <div class="ms-result-grid">
+        <div>
+          <div class="ms-result-number">
+            <span id="weightedResult">—</span>
+            <span>٪</span>
+          </div>
+
+          <div class="ms-result-text" id="resultText">
+            هنوز درصد کافی ثبت نشده است.
+          </div>
+
+          <div class="ms-result-progress">
+            <div id="resultProgress"></div>
+          </div>
+        </div>
+
+        <div class="ms-result-text">
+          <strong style="color: var(--green-dark); font-size: 15px">
+            نتیجه آزمون با نمره منفی
+          </strong>
+
+          <br /><br />
+
+          هر درس به صورت جداگانه محاسبه می‌شود و نتیجه آخرین آزمون ثبت‌شده در
+          این قسمت نمایش داده می‌شود.
+
+          <div class="ms-exam-result">
+            <div class="ms-exam-item">
+              <strong id="finalBio">—</strong>
+              <small>زیست</small>
+            </div>
+
+            <div class="ms-exam-item">
+              <strong id="finalChem">—</strong>
+              <small>شیمی</small>
+            </div>
+
+            <div class="ms-exam-item">
+              <strong id="finalMath">—</strong>
+              <small>ریاضی</small>
+            </div>
+
+            <div class="ms-exam-item">
+              <strong id="finalPhysics">—</strong>
+              <small>فیزیک</small>
+            </div>
+          </div>
+
+          <br />
+
+          <span> این شاخص آزمون، رتبه یا تراز واقعی کنکور نیست. </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RULES -->
+
+  <div class="ms-section">
+    <div class="ms-section-title">
+      <h2>📚 قوانین مطالعه</h2>
+      <span>روش پیشنهادی</span>
+    </div>
+
+    <div class="ms-rules">
+      <div class="ms-rule">
+        <strong>۱. یادگیری → تست</strong>
+        <span>
+          بعد از یادگیری هر گفتار، تست آموزشی همان مبحث را انجام بده.
+        </span>
+      </div>
+
+      <div class="ms-rule">
+        <strong>۲. تحلیل تست</strong>
+        <span>
+          فقط تعداد تست مهم نیست؛ تست‌های غلط، شک‌دار و نزده را بررسی کن.
+        </span>
+      </div>
+
+      <div class="ms-rule">
+        <strong>۳. دفترچه خطا</strong>
+        <span>
+          علت خطا را مشخص کن: مفهومی، بی‌دقتی، فرمول، برداشت اشتباه یا زمان.
+        </span>
+      </div>
+
+      <div class="ms-rule">
+        <strong>۴. مرور</strong>
+        <span> قبل از شروع هر بلوک چند دقیقه مطالب قبلی را سریع مرور کن. </span>
+      </div>
+
+      <div class="ms-rule">
+        <strong>۵. عقب افتادن</strong>
+        <span>
+          اگر یک روز عقب افتادی، کل برنامه را به هم نریز؛ از بلوک بعدی ادامه
+          بده.
+        </span>
+      </div>
+
+      <div class="ms-rule">
+        <strong>۶. خواب</strong>
+        <span> خواب کافی را فدای افزایش ساعت مطالعه نکن. </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="ms-footer">
+    برنامه مطالعه دهم تجربی • Green & Yellow Edition
+    <br />
+    اطلاعات درصدها و تنظیمات در مرورگر همین دستگاه ذخیره می‌شوند.
+  </div>
+
+  <script src="main.js"></script>
+</div>
